@@ -1,0 +1,35 @@
+name: Delete artifact
+
+on:
+  push:
+    branches:
+      - delete-artifact
+
+jobs:
+  upload-artifact:
+    name: Upload artifact
+    runs-on: ubuntu-22.04
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create file and folder
+        run: |
+          mkdir teste
+          cd teste
+          cat >arquivo<<EOF
+          Anything here
+          EOF
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: teste
+
+      - name: github artifacts remove
+        uses: oobattousai/github-remove-artifact@v1
+        with:
+          retention-days: 7
+          project-name: "hello-actions"
+          owner-account: "oobattousai"
+          access-token: ${{ secrets.REPO_ACCESS_KEY }}
