@@ -29,7 +29,7 @@ jobs:
       - name: github artifacts remove
         uses: oobattousai/github-remove-artifact@v1
         with:
-          retention-days: 7
+          retention-days: 0
           project-name: "hello-actions"
           owner-account: "oobattousai"
           access-token: ${{ secrets.REPO_ACCESS_KEY }}
