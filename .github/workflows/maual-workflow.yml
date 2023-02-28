@@ -1,0 +1,19 @@
+name: Manual workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      emailAutor:
+        description: "Email author of workflow"
+        required: true
+        type: string
+
+jobs:
+  build-workflow:
+    name: Build workflow
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Show de email
+        run: echo ${{ inputs.emailAutor }}
