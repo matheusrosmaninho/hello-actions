@@ -22,7 +22,7 @@ jobs:
       - name: Build the image
         run: |
           docker build -f Dockerfile.hello \
-          -t hello:latest
+          -t hello:latest .
 
       - name: Push
         run: |
