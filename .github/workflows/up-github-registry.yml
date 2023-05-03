@@ -1,0 +1,29 @@
+name: Registry upload
+
+on:
+  push:
+    branches:
+      - up-github-registry
+
+jobs:
+  upload_registry:
+    name: Upload to registry
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the image
+        run: |
+          docker build -f Dockerfile.hello \
+          -t hello:latest
+
+      - name: Push
+        run: |
+          docker push ghcr.io/oobattousai/hello:latest
