@@ -27,3 +27,6 @@ jobs:
       - name: Push
         run: |
           docker push ghcr.io/oobattousai/hello:latest
+
+      - name: Print the actor
+        run: echo ${{ github.actor }}
