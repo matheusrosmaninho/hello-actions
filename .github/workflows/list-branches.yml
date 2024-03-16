@@ -14,5 +14,5 @@ jobs:
         uses: matheusrosmaninho/github-branches-list@v1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          repo: ${{ github.repository }}
-          owner: ${{ github.repository_owner }}
+          repo: "hello-actions"
+          owner: "matheusrosmaninho"
