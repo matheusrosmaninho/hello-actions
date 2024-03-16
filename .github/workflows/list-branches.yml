@@ -1,0 +1,18 @@
+name: List branches on project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  list-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List branches details
+        uses: matheusrosmaninho/github-branches-list@1.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          repo: ${{ github.repository }}
+          owner: ${{ github.repository_owner }}
