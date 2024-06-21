@@ -1,0 +1,22 @@
+name: Remove historical runners
+
+on:
+  push:
+    branches:
+      - remove-runners
+
+jobs:
+  remove-runners:
+    name: Remove historical runners
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Github runners remove
+        uses: matheusrosmaninho/github-runners-remove@v1
+        with:
+          access_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_owner: "matheusrosmaninho"
+          repo_name: "hello-actions"
+          days_limit: 30
