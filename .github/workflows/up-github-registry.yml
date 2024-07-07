@@ -26,7 +26,7 @@ jobs:
         with:
           context: .
           file: Dockerfile.hello
-          tags: ghcr.io/oobattousai/hello:latest
+          tags: ghcr.io/matheusrosmaninho/hello:latest
           push: true
 
       - name: Print the actor
