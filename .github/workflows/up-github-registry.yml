@@ -5,6 +5,8 @@ on:
     branches:
       - up-github-registry
 
+  workflow_dispatch:
+
 jobs:
   upload_registry:
     name: Upload to registry
