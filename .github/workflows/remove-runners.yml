@@ -14,9 +14,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Github runners remove
-        uses: matheusrosmaninho/github-runners-remove@v1
+        uses: matheusrosmaninho/github-remove-old-runners@1.0.2
         with:
-          access_token: "${{ secrets.WORKFLOW_ACTIONS_REMOVE }}"
+          api_token: "${{ secrets.WORKFLOW_ACTIONS_REMOVE }}"
           repo_owner: "matheusrosmaninho"
-          repo_name: "hello-actions"
-          days_limit: 30
+          repo_name: "github-actions-playground"
+          days_retention: 0
