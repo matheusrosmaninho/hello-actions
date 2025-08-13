@@ -1,9 +1,7 @@
 name: Remove historical runners
 
 on:
-  push:
-    branches:
-      - remove-runners
+  workflow_dispatch:
 
 jobs:
   remove-runners:
